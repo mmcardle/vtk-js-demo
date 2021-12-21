@@ -10,7 +10,6 @@ const appEl = document.getElementById('app');
 const appEl2 = document.getElementById('app2');
 
 async function hashHandler() {
-  console.log('hashHandler');
   console.log('The hash has changed!', location.hash);
   
   const hash = !location.hash ? '#/' : location.hash;
@@ -20,19 +19,16 @@ async function hashHandler() {
   }
 }
 
-function buy(id) {
-  console.log(`Buy product with ${id} `);
+function afunction(id) {
+  console.log(`afunction ${id} `);
 }
 
 async function init() {
-  console.log('init');
   appEl.innerHTML = "";
   const hash = !location.hash ? '#/' : location.hash;
   const content = await routes[hash]();
   if (content !== undefined) {
     appEl.innerHTML = content;
-  } else {
-    console.log('content is undefined');
   }
 }
 
@@ -85,5 +81,5 @@ const routes = {
 
 init();
 
-window.buy = buy;
+window.afunction = afunction;
 window.addEventListener('hashchange', hashHandler, false);
